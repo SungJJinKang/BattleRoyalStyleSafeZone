@@ -10,7 +10,7 @@ blue zone move to nextSafezone smoothly
 
 
 Just set value to 
-currentSafezoneCoord
-currentSafezoneRadius
-nextSafezoneCoord
+currentSafezoneCoord,
+currentSafezoneRadius,
+nextSafezoneCoord,
 nextSafezoneRadius
