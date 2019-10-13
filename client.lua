@@ -14,7 +14,7 @@ local safezoneBlip
 Citizen.CreateThread(function()
     while true do
       if currentSafezoneCoord ~= nil and currentSafezoneRadius ~= nil then
-        DrawMarker(1, currentSafezoneCoord.x, currentSafezoneCoord.y, currentSafezoneCoord.z - 1, 0, 0, 0, 0, 0, 0, currentSafezoneRadius * 2.0, currentSafezoneRadius * 2.0, 1.1, cof.color.r, cof.color.g, cof.color.g, cof.color.a, 0, 0, 0, 0)
+        DrawMarker(1, currentSafezoneCoord.x, currentSafezoneCoord.y, currentSafezoneCoord.z - 1, 0, 0, 0, 0, 0, 0, currentSafezoneRadius * 2.0, currentSafezoneRadius * 2.0, 1.1, conf.color.r, conf.color.g, conf.color.g, conf.color.a, 0, 0, 0, 0)
       end      
       Wait(0)
     end
