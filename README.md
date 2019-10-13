@@ -14,3 +14,6 @@ currentSafezoneCoord,
 currentSafezoneRadius,
 nextSafezoneCoord,
 nextSafezoneRadius
+
+
+![](dsf.gif)
