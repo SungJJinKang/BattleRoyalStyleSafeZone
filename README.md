@@ -5,6 +5,10 @@ You can make pubg style blue zone
 
 blue zone move to nextSafezone smoothly
 
+
+
+
+
 Just set value to 
 currentSafezoneCoord
 currentSafezoneRadius
