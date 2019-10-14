@@ -60,7 +60,7 @@ while true do
   
  
   
-  Wait(50)
+  Wait(50) -- You can set 30 ( 30 fps ) but more expensive
 
 end
 
