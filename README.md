@@ -6,7 +6,9 @@ You can make pubg style blue zone
 -----------
 
 First. Set currentSafezoneCoord, currentSafezoneRadius
+
 Second. Set nextSafezoneCoord,nextSafezoneRadius
+
 Third.  blue zone will move from currentsafezone coord to nextSafezone coord smoothly
 
 
