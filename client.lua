@@ -1,8 +1,3 @@
---------------------------------------------------------------------------------
---                               BATTLE ROYALE V                              --
---                              Main client file                              --
---------------------------------------------------------------------------------
-
 local currentSafezoneCoord
 local currentSafezoneRadius
 local nextSafezoneCoord
@@ -22,6 +17,7 @@ end)
 
 
 
+--Safezone move smoothly
 --Draw safezone blip
 Citizen.CreateThread(function()
   
