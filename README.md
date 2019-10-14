@@ -3,7 +3,11 @@ BattleRoyalStyleSafeZone help you make safe zone ( like blue circle of pubg ) in
 
 You can make pubg style blue zone
 
-blue zone move to nextSafezone smoothly
+-----------
+
+First. Set currentSafezoneCoord, currentSafezoneRadius
+Second. Set nextSafezoneCoord,nextSafezoneRadius
+Third.  blue zone will move from currentsafezone coord to nextSafezone coord smoothly
 
 
 
