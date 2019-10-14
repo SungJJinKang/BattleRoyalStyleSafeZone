@@ -15,10 +15,8 @@ currentSafezoneRadius,
 nextSafezoneCoord,
 nextSafezoneRadius
 
-![#f03c15]
-
 Warning : Please set z of coord nearby z of player ped coord
 
-`#f03c15`
+
 
 ![](dsf.gif)
