@@ -10,9 +10,9 @@ end
   
 
   function SetSafeZoneBlip(blip, cSafezoneCoord, cSafezoneRadius)
-    local safeZoneBlip = AddBlipForRadius(cSafezoneCoord.x, cSafezoneCoord.y, cSafezoneCoord.z, cSafezoneRadius * 1.0)
+    local safeZoneBlip = AddBlipForRadius(cSafezoneCoord.x, cSafezoneCoord.y, cSafezoneCoord.z, cSafezoneRadius * 1.0) -- Creat New Blip with cSafezoneRadius 
   
-    SetBlipColour(safeZoneBlip, 1) -- Green
+    SetBlipColour(safeZoneBlip, 1) -- Red.......  (2 : Green, 3 : Blue)
     SetBlipHighDetail(safeZoneBlip, true)
     SetBlipAlpha(safeZoneBlip, 92)
     SetBlipDisplay(blip, 10)
@@ -20,7 +20,7 @@ end
  
   
     if blip ~= nil then
-      RemoveBlip(blip)
+      RemoveBlip(blip) -- Remove before blip(variable 'blip')
     end
   
     return safeZoneBlip
