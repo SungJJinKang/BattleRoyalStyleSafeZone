@@ -7,7 +7,7 @@ You can make pubg style blue zone
 
 First. Set currentSafezoneCoord, currentSafezoneRadius
 
-Second. Set nextSafezoneCoord,nextSafezoneRadius
+Second. Set targetSafezoneCoord, targetSafezoneRadius
 
 Third.  blue zone will move from currentsafezone coord to nextSafezone coord smoothly
 
@@ -15,11 +15,10 @@ Third.  blue zone will move from currentsafezone coord to nextSafezone coord smo
 
 
 
-Just set value to 
-currentSafezoneCoord,
-currentSafezoneRadius,
-nextSafezoneCoord,
-nextSafezoneRadius
+Just TriggerEvent
+brv:setCurrentSafezone
+brv:setTargetSafezone
+with parameters
 
 Warning : Please set z of coord nearby z of player ped coord
 
