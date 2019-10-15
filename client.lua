@@ -18,15 +18,8 @@ function ResetSafezone()
 end
 
 
+
 -- Returns true if the player is out of the zone, false otherwise
-function isPlayerOutOfZone(safeZoneCoord, safeZoneRadius)
-
-    local playerPos = GetEntityCoords(GetPlayerPed(PlayerId()))
-    local distance = math.abs(GetDistanceBetweenCoords(playerPos.x, playerPos.y, 0, safeZoneCoord.x, safeZoneCoord.y, 0, false))
-  
-    return distance > safeZoneRadius
-  end
-
   function isPlayerOutOfZone()
 
     local playerPos = GetEntityCoords(GetPlayerPed(PlayerId()))
