@@ -129,8 +129,7 @@ Citizen.CreateThread(function()
     
           if currentSafezoneCoord ~= nil and currentSafezoneRadius ~= nil then
     
-            DrawMarker(1, currentSafezoneCoord.x, currentSafezoneCoord.y, currentSafezoneCoord.z - 1, 0, 0, 0, 0, 0, 0, currentSafezoneRadius * 2.0, currentSafezoneRadius * 2.0, 1.1, 255, 0, 0, 200, 0, 0, 0, 0)
-            
+            DrawMarker(1, currentSafezoneCoord.x, currentSafezoneCoord.y, currentSafezoneCoord.z - 30, 0, 0, 0, 0, 0, 0, currentSafezoneRadius * 2.0, currentSafezoneRadius * 2.0, 80.0, 255, 0, 0, 200, 0, 0, 0, 0, 0, 0, 0)
         
           end
     
