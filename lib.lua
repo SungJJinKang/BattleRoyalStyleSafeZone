@@ -9,13 +9,14 @@ function isPlayerOutOfZone(safeZoneCoord, safeZoneRadius)
 end
   
 
-  function SetSafeZoneBlip(blip, cSafezoneCoord, cSafezoneRadius)
-    local safeZoneBlip = AddBlipForRadius(cSafezoneCoord.x, cSafezoneCoord.y, cSafezoneCoord.z, cSafezoneRadius * 1.0) -- Creat New Blip with cSafezoneRadius 
-  
-    SetBlipColour(safeZoneBlip, 1) -- Red.......  (2 : Green, 3 : Blue)
+  function SetSafeZoneBlip(blip, cSafezoneCoord, cSafezoneRadius, color)
+    local safeZoneBlip = AddBlipForRadius(cSafezoneCoord.x, cSafezoneCoord.y, cSafezoneCoord.z, cSafezoneRadius * 1.0)
+
+    SetBlipColour(safeZoneBlip, color) --
     SetBlipHighDetail(safeZoneBlip, true)
-    SetBlipAlpha(safeZoneBlip, 92)
-    SetBlipDisplay(blip, 10)
+    SetBlipAlpha(safeZoneBlip, 90)
+    SetBlipDisplay(safeZoneBlip, 10)
+
   
  
   
