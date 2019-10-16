@@ -36,30 +36,9 @@ math.lerp = function(a, b, t)
 end
 
 function coord_lerp(a, b, t)
-	return coord_Plus(a, coord_ManipulateWithNum(coord_Minus(b, a), t))
-end
-
-
-function coord_Plus(a, b)
-  a.x = a.x + b.x
-  a.y = a.y + b.y
-  a.z = a.z + b.z
-
-  return a
-end
-
-function coord_Minus(a, b)
-  a.x = a.x - b.x
-  a.y = a.y - b.y
-  a.z = a.z - b.z
-
-  return a
-end
-
-function coord_ManipulateWithNum(a, t)
-  a.x = a.x * t
-  a.y = a.y * t
-  a.z = a.z * t
-
-  return a
+  local lx = math.lerp(a.x, b.x, t)
+  local ly = math.lerp(a.y, b.y, t)
+  local lz = math.lerp(a.z, b.z, t)
+  
+  return {x = lx, y = ly, z = lz}
 end
