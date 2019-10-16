@@ -17,9 +17,15 @@ function ResetSafezone()
     
 end
 
+function IsSetCurrentSafezone()
+    if currentSafezoneCoord ~= nil and currentSafezoneRadius ~= nil  then
+        return true
+    else
+        return false
+    end
+end
 
 
--- Returns true if the player is out of the zone, false otherwise
   function isPlayerOutOfZone()
 
     local playerPos = GetEntityCoords(GetPlayerPed(PlayerId()))
@@ -30,14 +36,17 @@ end
 
  
 
-AddEventHandler('brv:setTargetSafezone', function(tSafezone)
+AddEventHandler('brv:setTargetSafezone', function(tSafezone, timer)
 
     targetSafezoneCoord = {x=tSafezone.x, y=tSafezone.y, z=tSafezone.z}
     targetSafezoneRadius = tSafezone.radius
   
-    CreateTargetSafezoneBlip()
+    CreateTargetSafezoneBlip(targetSafezoneCoord, targetSafezoneRadius)
 
+    showCountdown(timer, 1 , nil)
   
+    print('setTargetSafezone : ' .. tostring(tSafezone.x) .. ' ' .. tostring(tSafezone.y) .. ' ' .. tostring(tSafezone.z) .. ' ' .. tostring(tSafezone.radius) )
+     
 end)
   
   
@@ -46,17 +55,17 @@ end)
 AddEventHandler('brv:setCurrentSafezone', function(cSafezone)
   
      currentSafezoneCoord = {x=cSafezone.x, y=cSafezone.y, z=cSafezone.z}
-     currentSafezoneRadius = cSafezone.radius
-   end)
+    currentSafezoneRadius = cSafezone.radius
+end)
   
 
 
 local IsSafezoneArriveAtTarget = true
 local TargetSafezoneBlip = nil
 
-function CreateTargetSafezoneBlip()
+function CreateTargetSafezoneBlip(tSafezoneCoord, tSafezoneRadius)
 
-    TargetSafezoneBlip = SetSafeZoneBlip(TargetSafezoneBlip, targetSafezoneCoord, targetSafezoneRadius, 16)
+    TargetSafezoneBlip = SetSafeZoneBlip(TargetSafezoneBlip, tSafezoneCoord, tSafezoneRadius, 16)
     SetBlipPriority(TargetSafezoneBlip, 5)
 end
 
@@ -85,22 +94,22 @@ Citizen.CreateThread(function()
 
                 local isArrive = true
 
-                if(GetDistanceBetweenCoords(table.unpack(currentSafezoneCoord), table.unpack(currentSafezoneCoord), false) > 0.1) then
-                    currentSafezoneCoord = coord_lerp(currentSafezoneCoord, targetSafezoneCoord, conf.safeZoneCoordMoveSpeed * ( deltaTime / 1000  ) )
-                    isArrive = isArrive and false
+                if(GetDistanceBetweenCoords(table.unpack(currentSafezoneCoord), table.unpack(targetSafezoneCoord), false) > 0.1) then
+                  currentSafezoneCoord = coord_lerp(currentSafezoneCoord, targetSafezoneCoord, conf.safeZoneCoordMoveSpeed * ( deltaTime / 1000  ) )
+                  isArrive = isArrive and false
                 end
             
                 if(math.abs( currentSafezoneRadius - targetSafezoneRadius) > 0.1) then
-                currentSafezoneRadius = math.lerp(currentSafezoneRadius, targetSafezoneRadius, conf.safeZoneRadiusMoveSpeed * ( deltaTime / 1000  ) )
-                isArrive = isArrive and false
+                  currentSafezoneRadius = math.lerp(currentSafezoneRadius, targetSafezoneRadius, conf.safeZoneRadiusMoveSpeed * ( deltaTime / 1000  ) )
+                  isArrive = isArrive and false
                 end
 
                 if isArrive == true then
                     RemoveBlip(TargetSafezoneBlip)
                 end
             end
-                
-        currentSafezoneBlip = SetSafeZoneBlip(currentSafezoneBlip, currentSafezoneCoord, currentSafezoneRadius, 1)
+       
+          currentSafezoneBlip = SetSafeZoneBlip(currentSafezoneBlip, currentSafezoneCoord, currentSafezoneRadius, 1)
         SetBlipPriority(currentSafezoneBlip, 1)
         end
     
@@ -121,9 +130,8 @@ Citizen.CreateThread(function()
         while true do
     
           if currentSafezoneCoord ~= nil and currentSafezoneRadius ~= nil then
-    
             DrawMarker(1, currentSafezoneCoord.x, currentSafezoneCoord.y, currentSafezoneCoord.z - 30, 0, 0, 0, 0, 0, 0, currentSafezoneRadius * 2.0, currentSafezoneRadius * 2.0, 80.0, 255, 0, 0, 200, 0, 0, 0, 0, 0, 0, 0)
-        
+         
           end
     
         Wait(0)
