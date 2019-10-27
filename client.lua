@@ -93,7 +93,7 @@ Citizen.CreateThread(function()
                     playerOOZAt = GetGameTimer() 
                 end
     
-                local deltaTime = GetTimeDifference(GetGameTimer(), playerOOZAt)
+                local deltaTime = GetTimeDifference(GetGameTimer(), playerOOZAt) -- deltaTime is ms
                 playerOOZAt = GetGameTimer() 
     
 
@@ -101,7 +101,7 @@ Citizen.CreateThread(function()
 
                 if(GetDistanceBetweenCoords(currentSafezoneCoord.x, currentSafezoneCoord.y, 0, targetSafezoneCoord.x, targetSafezoneCoord.y, 0, false) > 0.1) then
                  
-                  currentSafezoneCoord = coord_lerp(currentSafezoneCoord, targetSafezoneCoord, conf.safeZoneCoordMoveSpeed * ( deltaTime / 1000  ) )
+                  currentSafezoneCoord = coord_lerp(currentSafezoneCoord, targetSafezoneCoord, conf.safeZoneCoordMoveSpeed * ( deltaTime / 1000  ) ) -- deltaTime/1000 <- change milliSecond to second
               
                   isArrive = isArrive and false
                 end
@@ -122,7 +122,7 @@ Citizen.CreateThread(function()
           SetBlipPriority(currentSafezoneBlip, 1)
         end
     
-        Wait(30)
+        Wait(30) -- Wait 30 ms .if you want safezone move more smoothly, Chnage this 20 or 10 
     
       end
     
